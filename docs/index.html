@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小柯機器人三軍棋遊戲</title>
+<meta name="description" content="3D 立體陸海空三軍棋：暗棋裁判制、真人對 AI、遠端真人對戰＋語音、AI 對 AI、敵情推算、棋譜累積、動畫語音教學。">
+<link rel="icon" href="ios/icon-180.png">
+<link rel="apple-touch-icon" href="ios/icon-180.png">
+<style>
+  :root { --bg: #121812; --card: #1d261c; --line: #3e4d36; --fg: #eef0e2; --dim: #aeb894; --gold: #e8b84a; --red: #c8402c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 30% -10%, #33422a, var(--bg) 60%); color: var(--fg); font: 17px/1.65 -apple-system, "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif; min-height: 100vh; }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 18px 60px; }
+  .hero { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .hero img { width: 132px; height: 132px; border-radius: 28px; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+  h1 { margin: 0; font-size: 34px; letter-spacing: 2px; }
+  .sub { color: var(--dim); margin: 4px 0 0; }
+  .play { display: inline-block; margin-top: 26px; padding: 18px 34px; border-radius: 14px; background: linear-gradient(#d84c37, #9e2416); color: #fff; font-size: 24px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 0 #6e190f; }
+  .play:active { transform: translateY(2px); box-shadow: 0 2px 0 #6e190f; }
+  .hint { color: var(--dim); font-size: 14px; margin-top: 8px; }
+  h2 { color: var(--gold); margin: 38px 0 12px; font-size: 22px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 19px; }
+  .card p { margin: 0 0 10px; color: var(--dim); font-size: 15px; }
+  .card a.dl { display: inline-block; margin: 4px 6px 0 0; padding: 8px 14px; border-radius: 9px; background: #2e3b2a; border: 1px solid #556b45; color: var(--fg); text-decoration: none; font-size: 15px; }
+  .card a.dl:hover { border-color: var(--gold); }
+  ul.feat { margin: 0; padding-left: 1.2em; }
+  ul.feat li { margin: 6px 0; }
+  footer { margin-top: 44px; color: var(--dim); font-size: 14px; text-align: center; }
+  @media (max-width: 560px) { h1 { font-size: 26px; } .hero img { width: 96px; height: 96px; } .play { display: block; text-align: center; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <img src="ios/icon-512.png" alt="小柯機器人三軍棋遊戲圖示">
+    <div>
+      <h1>小柯機器人三軍棋遊戲</h1>
+      <p class="sub">3D 立體陸海空三軍棋．暗棋裁判制．AI 推算敵情．<span id="ver">v1.0.0</span></p>
+    </div>
+  </div>
+  <a class="play" href="online/">▶ 開始玩（線上版，免安裝）</a>
+  <div class="hint">電腦、手機、平板的瀏覽器都能玩；棋譜與設定存在這台裝置的瀏覽器裡。想要更順暢、可離線使用，請安裝下面的 App。</div>
+
+  <h2>下載安裝</h2>
+  <div class="grid">
+    <div class="card"><h3>🪟 Windows 11</h3><p>安裝版會在桌面建立捷徑；免安裝版下載後直接執行。</p>
+      <a class="dl" data-asset="win-x64.exe" href="https://github.com/achir1015/xiaoke-sanjun/releases/latest">安裝版</a>
+      <a class="dl" data-asset="win-x64-portable.exe" href="https://github.com/achir1015/xiaoke-sanjun/releases/latest">免安裝版</a></div>
+    <div class="card"><h3>🍎 MacBook Pro</h3><p>依晶片選擇。第一次開啟請在 App 上按右鍵選「打開」。</p>
+      <a class="dl" data-asset="mac-arm64.dmg" href="https://github.com/achir1015/xiaoke-sanjun/releases/latest">Apple 晶片</a>
+      <a class="dl" data-asset="mac-x64.dmg" href="https://github.com/achir1015/xiaoke-sanjun/releases/latest">Intel 晶片</a></div>
+    <div class="card"><h3>🤖 Android 手機</h3><p>用手機下載後點開安裝（需允許「安裝未知應用程式」）。直立畫面。</p>
+      <a class="dl" data-asset="android.apk" href="https://github.com/achir1015/xiaoke-sanjun/releases/latest">下載 APK</a></div>
+    <div class="card"><h3>📱 iPhone／iPad</h3><p>用 Safari 開安裝頁，按一下就裝好（限開發者登記過的裝置）。iPhone 直放、iPad 橫放。</p>
+      <a class="dl" href="ios/">開啟安裝頁</a></div>
+  </div>
+
+  <h2>遊戲特色</h2>
+  <div class="card"><ul class="feat">
+    <li><b>三種對戰</b>：真人對 AI（五種難度）、真人對真人（6 位數房號遠端連線、文字與語音聊天）、AI 對 AI 觀戰。</li>
+    <li><b>暗棋裁判制</b>：看不到對方棋子，只公布交戰勝負；AI 也只用同樣的資訊推算，絕不偷看。也有明棋可以練習。</li>
+    <li><b>敵情推算與棋譜累積</b>：推算每顆暗子的機率並標在棋盤上；每局自動收錄，AI 從棋譜學習對手布陣習慣與致勝布陣。</li>
+    <li><b>AI 軍師陪同</b>：20 位男英雄、20 位女佳人、30 位男女軍師；可請教、可中途換軍師，也能讓軍師代打再交還主位。</li>
+    <li><b>陸海空三軍</b>：每方 33 顆棋子，陸地鐵路、海峽鐵橋、港口、外海航道與飛機場；潛水艇偷襲、砲艦炮擊、高射炮防空、偵察機翻開暗子。</li>
+    <li><b>動畫語音教學</b>：19 課三軍棋教學（動畫＋語音＋練習），以及系統功能說明（語音＋文字）。</li>
+    <li><b>3D 沙盤與 20 首軍樂</b>：起伏的海面、鐵橋、港口燈塔、機場塔台、隨浪搖晃的軍艦與懸空的飛機、交戰火花與爆炸；20 首原創背景音樂，直立音量滑桿。</li>
+  </ul></div>
+
+  <footer>遊戲開發：吳玉柱 先生 與 Claude AI Opus 5.5　．　<a href="https://github.com/achir1015/xiaoke-sanjun" style="color:var(--dim)">GitHub</a></footer>
+</main>
+<script>
+  // 依最新版本填入直接下載的連結（查詢失敗時維持連到 Release 頁）
+  fetch('https://api.github.com/repos/achir1015/xiaoke-sanjun/releases/latest').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) {
+    if (!j) return;
+    document.getElementById('ver').textContent = j.tag_name;
+    document.querySelectorAll('a[data-asset]').forEach(function (a) {
+      var suffix = '-' + a.dataset.asset;
+      var as = (j.assets || []).filter(function (x) { return x.name.slice(-suffix.length) === suffix; })[0];
+      if (as) { a.href = as.browser_download_url; a.title = as.name + '（' + (as.size / 1048576).toFixed(0) + ' MB）'; }
+    });
+  }).catch(function () {});
+</script>
+</body>
+</html>
