@@ -17,7 +17,8 @@ AI 只根據公開資訊推算對方暗子，並從累積的棋譜學習。
 | Windows 11 免安裝版 | `XiaokeSanjun-版本-win-x64-portable.exe` |
 | MacBook Pro（Apple 晶片） | `XiaokeSanjun-版本-mac-arm64.dmg` |
 | MacBook Pro（Intel） | `XiaokeSanjun-版本-mac-x64.dmg` |
-| Android、iPhone／iPad、線上版 | 陸續推出 |
+| Android 手機（直立） | `XiaokeSanjun-版本-android.apk` |
+| iPhone／iPad、線上版 | 陸續推出 |
 
 程式內建「檢查更新」，有新版時按一下就會自動下載安裝。
 
@@ -67,6 +68,8 @@ npm test             # 規則、AI、推算、教學單元測試
 node e2e/smoke.mjs   # 單機端對端測試
 node e2e/net.mjs     # 雙實例連線測試（本機配對伺服器）
 npm run dist:win     # 建置 Windows 安裝檔
+python android/build.py install   # 建置 Android APK 並安裝到 USB 連接的手機（加 debug 可實機測試）
+node e2e/phone.mjs   # 手機實機測試（除錯版 APK）
 ```
 
 素材產生：`python scripts/gen_music.py`（背景音樂）、`node scripts/gen_portraits.mjs`（頭像）、`python scripts/make_icon.py`（圖示）。

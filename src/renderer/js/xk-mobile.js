@@ -1,14 +1,14 @@
 // 手機／平板版（Android、iPhone、iPad）與網頁版的 window.xk：取代桌面版主程序提供的功能。
 // 桌面版有 preload 提供 window.xk，這個檔案就什麼都不做。
 // Android App 提供 window.XiaokeAndroid（存檔、檢查更新與安裝、開網址）；
-// iPhone／iPad App 提供 window.XiaokeIOS＋webkit.messageHandlers.xkq（存檔分享、開網址、系統記錄）；在一般瀏覽器測試時改用網頁功能。
+// iPhone／iPad App 提供 window.XiaokeIOS＋webkit.messageHandlers.xks（存檔分享、開網址、系統記錄）；在一般瀏覽器測試時改用網頁功能。
 (function () {
   'use strict';
   if (window.xk) return;
   var A = window.XiaokeAndroid || null;
   var isAndroid = !!A;
-  var isIOS = !!(window.XiaokeIOS && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.xkq);
-  function ios(cmd, args) { return window.webkit.messageHandlers.xkq.postMessage({ cmd: cmd, args: args || [] }); }
+  var isIOS = !!(window.XiaokeIOS && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.xks);
+  function ios(cmd, args) { return window.webkit.messageHandlers.xks.postMessage({ cmd: cmd, args: args || [] }); }
   // 手機（Android、iPhone）直立版面：html.mobile；iPad 的 WebView 用電腦版 UA（Macintosh），走電腦版版面＋html.touch
   var ua = navigator.userAgent || '';
   var mobile = isAndroid || /Android|iPhone|Mobile/i.test(ua) || /[?&]mobile=1/.test(location.search);
