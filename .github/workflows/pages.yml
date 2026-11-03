@@ -1,0 +1,41 @@
+name: 部署網站（首頁、iPhone／iPad 安裝頁、線上版）
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/renderer/**', 'assets/**', 'docs/**', 'scripts/build-mobile.mjs', 'mobile/**', 'package.json', '.github/workflows/pages.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm ci --ignore-scripts
+      - name: 產生線上版網頁
+        run: node scripts/build-mobile.mjs
+      - name: 組合網站：docs（首頁、ios 安裝頁）＋ online（遊戲）
+        run: |
+          mkdir -p _site
+          cp -R docs/. _site/
+          cp -R mobile/www _site/online
+          du -sh _site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+      - id: deployment
+        uses: actions/deploy-pages@v4

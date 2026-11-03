@@ -9,6 +9,8 @@ AI 只根據公開資訊推算對方暗子，並從累積的棋譜學習。
 
 ## 下載
 
+**線上版（免安裝）**：https://achir1015.github.io/xiaoke-sanjun/online/　．　網站首頁：https://achir1015.github.io/xiaoke-sanjun/
+
 到 [Releases](https://github.com/achir1015/xiaoke-sanjun/releases/latest) 下載：
 
 | 平台 | 檔案 |
@@ -19,7 +21,6 @@ AI 只根據公開資訊推算對方暗子，並從累積的棋譜學習。
 | MacBook Pro（Intel） | `XiaokeSanjun-版本-mac-x64.dmg` |
 | Android 手機（直立） | `XiaokeSanjun-版本-android.apk` |
 | iPhone（直放）／iPad（橫放） | 用 Safari 開 [安裝頁](https://achir1015.github.io/xiaoke-sanjun/ios/) 按「安裝」（限已登記的裝置） |
-| 線上版 | 陸續推出 |
 
 程式內建「檢查更新」，有新版時按一下就會自動下載安裝。
 
@@ -72,6 +73,7 @@ npm run dist:win     # 建置 Windows 安裝檔
 python android/build.py install   # 建置 Android APK 並安裝到 USB 連接的手機（加 debug 可實機測試）
 node e2e/phone.mjs   # 手機實機測試（除錯版 APK）
 node e2e/ios.mjs     # iPhone／iPad 版面測試（Chrome 模擬）
+node e2e/web.mjs     # 線上版測試（照網站路徑排好；可帶正式網址參數）
 ```
 
 素材產生：`python scripts/gen_music.py`（背景音樂）、`node scripts/gen_portraits.mjs`（頭像）、`python scripts/make_icon.py`（圖示）。

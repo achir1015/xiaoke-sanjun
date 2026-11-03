@@ -1,6 +1,6 @@
 ## 小柯機器人三軍棋遊戲 v1.0.0
 
-3D 立體陸海空三軍棋（暗棋裁判制／明棋）：Windows 11、MacBook Pro、Android、iPhone、iPad；線上版陸續推出。
+3D 立體陸海空三軍棋（暗棋裁判制／明棋）：Windows 11、MacBook Pro、Android、iPhone、iPad，以及免安裝的線上版 https://achir1015.github.io/xiaoke-sanjun/online/ 。
 
 ### 下載
 - **Windows 11**：`XiaokeSanjun-1.0.0-win-x64.exe`（安裝版，會建立桌面捷徑）或 `XiaokeSanjun-1.0.0-win-x64-portable.exe`（免安裝）
