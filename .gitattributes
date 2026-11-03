@@ -1,0 +1,8 @@
+* text=auto
+*.sh text eol=lf
+*.applescript text eol=lf
+ios/project.yml text eol=lf
+*.mp3 binary
+*.png binary
+*.ico binary
+*.jks binary

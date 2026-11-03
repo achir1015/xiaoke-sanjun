@@ -1,0 +1,101 @@
+{
+  "name": "xiaoke-sanjun",
+  "productName": "小柯機器人三軍棋遊戲",
+  "version": "1.0.0",
+  "description": "小柯機器人三軍棋遊戲：3D 陸海空三軍棋（陸軍、海軍、空軍 33 顆棋子；暗棋裁判制／明棋；與 AI、遠端真人＋語音、AI 對 AI、背景音樂、AI 軍師、棋譜累積與敵情推算、動畫語音教學、自動更新）",
+  "main": "src/main/main.js",
+  "author": {
+    "name": "吳玉柱",
+    "email": "achir1015@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/",
+    "e2e": "node e2e/smoke.mjs && node e2e/guide.mjs",
+    "music": "python scripts/gen_music.py",
+    "icon": "python scripts/make_icon.py",
+    "portraits": "node scripts/gen_portraits.mjs",
+    "dist:win": "electron-builder --win nsis portable --x64 --publish never",
+    "dist:mac": "electron-builder --mac dmg --publish never"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "peerjs": "1.5.5",
+    "three": "0.170.0"
+  },
+  "build": {
+    "appId": "com.achir.xiaokesanjun",
+    "productName": "小柯機器人三軍棋遊戲",
+    "artifactName": "XiaokeSanjun-${version}-${os}-${arch}.${ext}",
+    "copyright": "Copyright © 2026 吳玉柱",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "!assets/portraits/_sheet.html",
+      "package.json",
+      "node_modules/**/*",
+      "!node_modules/three/examples/**",
+      "!node_modules/three/src/**",
+      "!node_modules/**/test/**",
+      "!node_modules/**/*.map",
+      "!node_modules/**/*.d.ts",
+      "!node_modules/**/*.d.mts",
+      "!mobile/**",
+      "!android/**",
+      "!ios/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "executableName": "XiaokeSanjun"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "小柯機器人三軍棋遊戲",
+      "uninstallDisplayName": "小柯機器人三軍棋遊戲",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "language": "1028",
+      "installerLanguages": [
+        "zh_TW"
+      ]
+    },
+    "portable": {
+      "artifactName": "XiaokeSanjun-${version}-win-x64-portable.${ext}"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.png",
+      "category": "public.app-category.board-games",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "與遠端棋友語音通話需要使用麥克風。"
+      },
+      "identity": "-"
+    },
+    "dmg": {
+      "title": "小柯機器人三軍棋遊戲 ${version}"
+    },
+    "npmRebuild": false,
+    "afterSign": "build/adhoc-sign.cjs"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.24.2",
+    "peer": "^1.0.2",
+    "playwright-core": "^1.48.2"
+  }
+}
