@@ -15,7 +15,9 @@ AI 只根據公開資訊推算對方暗子，並從累積的棋譜學習。
 | --- | --- |
 | Windows 11 安裝版（建立桌面捷徑） | `XiaokeSanjun-版本-win-x64.exe` |
 | Windows 11 免安裝版 | `XiaokeSanjun-版本-win-x64-portable.exe` |
-| MacBook Pro、Android、iPhone／iPad、線上版 | 陸續推出 |
+| MacBook Pro（Apple 晶片） | `XiaokeSanjun-版本-mac-arm64.dmg` |
+| MacBook Pro（Intel） | `XiaokeSanjun-版本-mac-x64.dmg` |
+| Android、iPhone／iPad、線上版 | 陸續推出 |
 
 程式內建「檢查更新」，有新版時按一下就會自動下載安裝。
 
